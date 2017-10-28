@@ -49,6 +49,7 @@ int main(int argc, char **argv)
 		g_dt.last_live = g_dt.player_g;
 		print_map();
 		ft_game_cycle();
+		// printf("player %s win!\n", g_dt.last_live->prog_name);
 	}
 	return (0);
 }

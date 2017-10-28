@@ -80,7 +80,7 @@ void	ft_take_args(t_process *process, int i, int command)
 //	printf("here\n");
 
 //	 printf("args : %d, %d, %d, %d\n", process->args[0], process->args[1], process->args[2], process->args[3]);
-	while (i < 4)
+	while (i < g_tab[command - 1].count_arg + 1)
 	{
 		if (process->args[i] == REG_CODE) {
 //			printf("here reg\n");
@@ -197,6 +197,10 @@ void		ft_sti(t_process *process)
 	else if (codage_octal == 120 || codage_octal == 116)
 		ft_sti_03(process, codage_octal, i);
 	else
-		process->mem_addres = ft_increment_index(process);
+	{
+		printf("here\n");
+		ft_take_args(process, 0, g_dt.map[0][process->mem_addres]);
+		// process->mem_addres = ft_increment_index(process);
+	}
 	ft_bzero(process->args, 16);
 }

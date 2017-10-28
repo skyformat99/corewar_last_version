@@ -1,4 +1,4 @@
 .name           "42"
 .comment        "Just a basic Winner Program"
 
-st r1, 10
+live %-1

@@ -32,7 +32,7 @@ void    print_map()
 		++y;
 	}
 	ft_print_info();
-	usleep(g_vh.speed);
+	// usleep(g_vh.speed);
 	wrefresh(g_vh.gen_win);
 	wrefresh(g_vh.info);
 	wrefresh(g_vh.term);

@@ -64,14 +64,14 @@ int   check_car(int ind)
 
 void set_color_on_map(int gen, int pl, int bold, int ind)
 {
-//	if(check_car(ind) == 1)
-//	{
-//		if (pl != 48)
-//			wattron(g_vh.gen_win, COLOR_PAIR(pl - 64 + 10));
-//		else if (pl == 48)
-//			wattron(g_vh.gen_win, COLOR_PAIR(CAR_NP));
-//	}
-	if (pl != 48 && bold == 0)
+	if(check_car(ind) == 1)
+	{
+		if (pl != 48)
+			wattron(g_vh.gen_win, COLOR_PAIR(pl - 64 + 10));
+		else if (pl == 48)
+			wattron(g_vh.gen_win, COLOR_PAIR(CAR_NP));
+	}
+	else if (pl != 48 && bold == 0)
 		wattron(g_vh.gen_win, COLOR_PAIR(pl - 64));
 	else if (pl != 48 && bold > 0)
 		wattron(g_vh.gen_win, COLOR_PAIR(pl - 64) | A_BOLD);
@@ -82,14 +82,14 @@ void set_color_on_map(int gen, int pl, int bold, int ind)
 
 void set_color_off_map(int gen, int pl, int bold, int ind)
 {
-	//if(check_car(ind) == 1)
-	//{
-	//	if (pl != 48)
-	//		wattroff(g_vh.gen_win, COLOR_PAIR(pl - 64 + 10));
-	//	else if (pl == 48)
-	//		wattroff(g_vh.gen_win, COLOR_PAIR(CAR_NP));
-//	}
-	if (pl != 48 && bold == 0)
+	if(check_car(ind) == 1)
+	{
+		if (pl != 48)
+			wattroff(g_vh.gen_win, COLOR_PAIR(pl - 64 + 10));
+		else if (pl == 48)
+			wattroff(g_vh.gen_win, COLOR_PAIR(CAR_NP));
+	}
+	else if (pl != 48 && bold == 0)
 		wattroff(g_vh.gen_win, COLOR_PAIR(pl - 64));
 	else if (pl != 48 && bold > 0)
 	{

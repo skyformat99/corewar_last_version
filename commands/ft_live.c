@@ -50,6 +50,7 @@ void			ft_live(t_process *process)
 	if((player = ft_is_live_arg_valid(process)) != NULL)
 	{
 		g_dt.last_live = player;
+		// printf("player (%s) say live\n", player->prog_name);
 		player->n_live++;
 	}
 	process->alive = 1;

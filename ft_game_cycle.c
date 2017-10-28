@@ -8,7 +8,7 @@ static void ft_change_cycle2die(t_data *data)
 	if (g_dt.nbr_live >= NBR_LIVE)
 	{
 		g_dt.cycle2die -= CYCLE_DELTA;
-		g_dt.nbr_live = 0;
+		g_dt.max_checks = 0;
 	}
 	else
 	{
@@ -27,6 +27,7 @@ static void ft_change_cycle2die(t_data *data)
 		p->n_live = 0;
 		p = p->next;
 	}
+	g_dt.nbr_live = 0;
 }
 
 /*
@@ -69,26 +70,28 @@ void ft_game_cycle(void)
 	t_process *p;
 	
 	g_dt.cycle = 0;
-	g_dt.change_cycle = 1;
+	g_dt.change_cycle = 0;
 	while (g_dt.cycle2die > 0 && g_dt.process_g != NULL)
 	{
-		ft_putstr_vis_int(g_dt.cycle);
+		// ft_putstr_vis_int(g_dt.cycle);
 		p = g_dt.process_g;
 		while (p != NULL)
 		{
 			ft_execute_command(p);
 			p = p->next;
 		}
-		g_dt.cycle++;
-		g_dt.change_cycle++;
-		print_map();
-		if (g_dt.change_cycle == g_dt.cycle2die)
+		if ((g_dt.change_cycle + 1) == g_dt.cycle2die)
 		{
 			ft_change_cycle2die(&g_dt);
 			ft_kill_processes();
-			g_dt.change_cycle = 1;
+			g_dt.change_cycle = 0;
 		}
+		else
+			g_dt.change_cycle++;
+		g_dt.cycle++;
+		print_map();
 	}
+	// print_map();
 		final();
 	// ft_putstr("%FINISH\n");
 	//Карта перестает делать вообще все и стоит на паузе, любая клавиша выходит из игры!

@@ -125,6 +125,10 @@ void				ft_ldi(t_process *p)
 	else if (position == -44 || position == -28)
 		ft_ldi_lldi_3(p, position, commmand);
 	else
-		ft_increment_index(p);
+	{
+		// ft_increment_index(p);
+		ft_take_args(p, 0, g_dt.map[0][p->mem_addres]);
+
+	}
 	ft_bzero(p->args, 16);
 }

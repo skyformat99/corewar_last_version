@@ -160,6 +160,10 @@ void	ft_xor_and_or(t_process *process)
 	else if (op_code == -12 || op_code == -28)
 		ft_and_or_xor_5(process, operation, op_code);
 	else
-		ft_increment_index(process);
+	{
+		// ft_increment_index(process);
+		ft_take_args(process, 0, g_dt.map[0][process->mem_addres]);
+		
+	}
 	ft_bzero(process->args, 16);
 }
