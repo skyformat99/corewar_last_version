@@ -92,4 +92,10 @@ void   ft_print_info(void)
 	ft_print_player();
 	ft_print_cycle_2die();
 	g_vh.inf_o = 10;
+	usleep(g_vh.speed);
+	wrefresh(g_vh.gen_win);
+	wrefresh(g_vh.info);
+	wrefresh(g_vh.term);
+	g_vh.iter = g_vh.iter_fl;
+	ft_pause_iter();
 }

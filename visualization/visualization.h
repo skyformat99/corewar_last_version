@@ -84,9 +84,7 @@ t_vis        g_vh;
 
 void	init_ncurses(void);
 void    print_map();
-
 void    ft_set_pair();
-
 void   set_color_on_map(int gen, int pl, int bold, int ind);
 void   set_color_off_map(int gen, int pl, int bold, int ind);
 void   ft_putstr_vis_int(int str);
@@ -105,4 +103,5 @@ void    ft_print_cycle_2die();
 void    ft_pause_iter();
 void    ft_print_player();
 void    final();
+
 #endif

@@ -1,6 +1,4 @@
-//
-// Created by Maksym Kaliberda on 16.10.17.
-//
+
 
 # include "../corewar.h"
 
